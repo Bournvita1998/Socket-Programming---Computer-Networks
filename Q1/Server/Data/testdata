@@ -1,0 +1,9 @@
+It works for real files and StringIO's, in my limited testing. (Python 2.7.3.) The "file-like object" API isn't really a rigorous interface, of course, but the API documentation suggests that file-like objects should support seek() and tell().
+
+Edit
+
+Another difference between this and os.stat() is that you can stat() a file even if you don't have permission to read it. Obviously the seek/tell approach won't work unless you have read permission.
+
+Edit 2
+
+At Jonathon's suggestion, here's a paranoid version. (The version above leaves the file pointer at the end of the file, so if you were to try to
